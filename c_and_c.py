@@ -60,7 +60,7 @@ EPRINT: https://arxiv.org/abs/2408.04007.
 
 Author: F.C.R. Peres
 Creation date: 14/06/2021
-Last updated: 16/09/2025
+Last updated: 06/03/2026
 --------------------------------------------------------------------------------
 '''
 
@@ -1081,7 +1081,10 @@ def compiling(circuit_list,
 
     index_ac_Pauli = current_Pauli.is_commuting(q_count, t_count, pipc_Paulis)
     if index_ac_Pauli != 'True':
-        outcome = random.randint(0, 1)
+        if len(all_outcomes) <= q_count + t_count:
+            outcome = 0  # post-selecting classical gadget measurements to 0
+        else:
+            outcome = random.randint(0, 1)
 
         P = pipc_Paulis[index_ac_Pauli]
         sP = int(pipc_outcomes[index_ac_Pauli])
@@ -1121,8 +1124,8 @@ def compiling(circuit_list,
                                        pipc_outcomes,
                                        current_Pauli,
                                        order=greedy_order)
-                _ , matrix = current_Pauli.is_independent(q_count, t_count,
-                                                      pipc_Paulis, matrix_old)
+                _, matrix = current_Pauli.is_independent(
+                    q_count, t_count, pipc_Paulis, matrix_old)
             if not first_qm:
                 state_vector = np.array([])
                 tt = 0
