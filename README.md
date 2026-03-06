@@ -8,7 +8,7 @@ and functions to make things more readable and user friendly.
 Each module is suitably documented at the start for clarity. In principle,
 users need only open and make changes to `Main.py`.
 
-Contact: filipa.peres@inl.int
+Contact: fcrperes@onsager.ugr.es
 -------------------------------------------------------------------------------
 
 
@@ -54,17 +54,20 @@ modules and run the command: `python Main.py`;
 
 
 **Tracking code versions**:
-1. First commit: the original version of the code;
+1. First commit: the original version of the code.
 2. Second commit: no changes to the original code, simple inclusion of the
-e-print no. in this file and in the string documentation of the python files;
+e-print no. in this file and in the string documentation of the python files.
 3. Third commit: an improvement was made to the sampling complexity of the
 hybrid computation task (the theoretical explanation of this improvement can be
-seen in the final version of our article);
+seen in the final version of our article).
 4. Fourth commit: an improvement was made in the algorithm for assessing the
 (in)dependence of the Paulis; this lead to an improvement of the overall
 complexity of our code as seen in the new version of our article.
-5. Fifth commit: included the greedy algorithm proposed in our new preprint
-[https://arxiv.org/abs/2408.04007].
+5. Fifth commit: included the greedy algorithm proposed in our new paper
+[https://journals.aps.org/pra/abstract/10.1103/d3x5-cgky].
+6. Sixth commit: minor bug fix in the greedy algorithm.
+7. Seventh commit: postselecting classically decidable gadget measurements to 0.
+8. Eighth commit: updaing this document (inc. contact info).
 
 
 **Copyright:**
