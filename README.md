@@ -67,7 +67,8 @@ complexity of our code as seen in the new version of our article.
 [https://journals.aps.org/pra/abstract/10.1103/d3x5-cgky].
 6. Sixth commit: minor bug fix in the greedy algorithm.
 7. Seventh commit: postselecting classically decidable gadget measurements to 0.
-8. Eighth commit: updaing this document (inc. contact info).
+8. Eighth commit: updating this document (inc. contact info).
+9. Ninth commit: small fix of the postselection introduced in 7.
 
 
 **Copyright:**

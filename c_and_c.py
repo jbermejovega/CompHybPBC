@@ -60,7 +60,7 @@ EPRINT: https://arxiv.org/abs/2408.04007.
 
 Author: F.C.R. Peres
 Creation date: 14/06/2021
-Last updated: 06/03/2026
+Last updated: 19/03/2026
 --------------------------------------------------------------------------------
 '''
 
@@ -1081,7 +1081,7 @@ def compiling(circuit_list,
 
     index_ac_Pauli = current_Pauli.is_commuting(q_count, t_count, pipc_Paulis)
     if index_ac_Pauli != 'True':
-        if len(all_outcomes) <= q_count + t_count:
+        if len(all_outcomes) < q_count + t_count:
             outcome = 0  # post-selecting classical gadget measurements to 0
         else:
             outcome = random.randint(0, 1)
