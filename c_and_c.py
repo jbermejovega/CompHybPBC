@@ -60,7 +60,7 @@ EPRINT: https://arxiv.org/abs/2408.04007.
 
 Author: F.C.R. Peres
 Creation date: 14/06/2021
-Last updated: 19/03/2026
+Last updated: 21/04/2026
 --------------------------------------------------------------------------------
 '''
 
@@ -375,7 +375,7 @@ class Pauli_Operator():
                 if (Q.bin_vec[i] == 1 and
                         Q.bin_vec[int((self.nr_columns - 1) / 2) + i] == 0):
                     contribution += 1
-                elif (Q.bin_vec[i] == 0
+                elif (Q.bin_vec[i] == 1
                       and Q.bin_vec[int((self.nr_columns - 1) / 2) + i] == 1):
                     contribution += 3
 
@@ -1105,13 +1105,17 @@ def compiling(circuit_list,
                                                       pipc_Paulis, matrix)
         if isinstance(kernel, list):
             nr_rows = len(kernel)
+            product_P = Pauli_Operator([0] * current_Pauli.nr_columns)
             outcome = 0
             for i in range(nr_rows - 1):
                 if kernel[i] == 1:
-                    outcome = (outcome + pipc_outcomes[i + q_count] +
-                               Pauli_phases[i + q_count]) % 2
-            if current_Pauli.bin_vec[-1] == 1:
-                outcome = (outcome + 1) % 2
+                    outcome = (outcome + pipc_outcomes[i + q_count]) % 2
+                    product_P = Pauli_Operator(
+                        Pauli_mult(q_count, product_P,
+                                   pipc_Paulis[i + q_count]))
+
+            outcome = (outcome + product_P.bin_vec[-1] +
+                       current_Pauli.bin_vec[-1]) % 2
 
         elif isinstance(kernel, int):
             outcome = kernel

@@ -69,6 +69,8 @@ complexity of our code as seen in the new version of our article.
 7. Seventh commit: postselecting classically decidable gadget measurements to 0.
 8. Eighth commit: updating this document (inc. contact info).
 9. Ninth commit: small fix of the postselection introduced in 7.
+10. Tenth commit: small bug fix in method RPQproduct(self, P, Q) and in the
+sign correlation of dependent Paulis.
 
 
 **Copyright:**
